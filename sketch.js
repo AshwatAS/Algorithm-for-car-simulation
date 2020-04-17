@@ -2,10 +2,16 @@ function setup() {
   createCanvas(1600,400);
   wall=createSprite(1430,200,20,400);
   //wall.debug=true;
-  car=createSprite(20,200,20,20);
+  car=createSprite(20,100,20,20);
   car.shapeColor="white";
   //car.debug=true;
   car.velocityX=8;
+  car2=createSprite(20,200,20,20);
+  car2.shapeColor="white";
+  car2.velocityX=8;
+  car3=createSprite(20,300,20,20);
+  car3.shapeColor="white";
+  car3.velocityX=8;
 }
 
 function draw() {
@@ -26,6 +32,42 @@ function draw() {
     if(deformation>180){
       car.shapeColor="red";
       car.x=800;
+    }
+  }
+  if(car2.isTouching(wall)){
+    weight=random(400,1500);
+    speed=random(30,95);
+    deformation=0.5*weight*speed*speed/22500
+    car2.velocityX=0;
+    if(deformation<100){
+      car2.shapeColor="green";
+      car2.x=800;
+    }
+    if(deformation>=100 && deformation<=180){
+      car2.shapeColor="yellow";
+      car2.x=800;
+    }
+    if(deformation>180){
+      car2.shapeColor="red";
+      car2.x=800;
+    }
+  }
+  if(car3.isTouching(wall)){
+    weight=random(400,1500);
+    speed=random(30,95);
+    deformation=0.5*weight*speed*speed/22500
+    car3.velocityX=0;
+    if(deformation<100){
+      car3.shapeColor="green";
+      car3.x=800;
+    }
+    if(deformation>=100 && deformation<=180){
+      car3.shapeColor="yellow";
+      car3.x=800;
+    }
+    if(deformation>180){
+      car3.shapeColor="red";
+      car3.x=800;
     }
   }
   drawSprites();
